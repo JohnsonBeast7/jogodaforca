@@ -2,6 +2,8 @@ import os
 import time
 
 
+
+
 os.system('cls')
 nomeDesafiante = input('Nome do desafiante: ')
 nomeCompetidor = input('Nome do competidor: ')
@@ -25,6 +27,7 @@ os.system('cls')
 palavraEscondida = ['_'] * len(palavraChave) 
 letras_usadas = []
 letras_erradas = []
+controleLetrasErradas = 0
 
 while True:
     os.system('cls')
@@ -49,6 +52,11 @@ while True:
                         palavraEscondida[i] = letra
             else:
                 print("Errou!")
+                controleLetrasErradas += 1
+                if controleLetrasErradas == 6:
+                    os.system('cls')
+                    print("Você perdeu! A palavra era:", palavraChave)
+                    break
         
         time.sleep(2)
 
