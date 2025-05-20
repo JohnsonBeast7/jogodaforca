@@ -1,0 +1,2 @@
+é possivel começar o jogo sem adicioanar, os nomes, as dicas e as palavras
+se não enviarmos nada quando a opção jogar é escolhida, aparece que a letra escolhida está errada

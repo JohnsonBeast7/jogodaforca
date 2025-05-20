@@ -1,72 +1,77 @@
-import os 
-import time
+# Jogo da Forca
+import os, time
+
 while True:
     os.system("cls")
-    desafiante = input("Nome do Desafiante: ")
-    competidor = input("Nome do Competidor: ")
+    competidor  = input("Digite o nome do Competidor: ")
+    desafiante = input("Digite o nome do Desafiante: ")
+
     os.system("cls")
-    palavra = input("Palavra Chave: ")
-    secreta = "*" * len(palavra)
-    dica1 = input("Dica1: ")
-    dica2 = input("Dica2: ")
-    dica3 = input("Dica3: ")
+    palavraChave = input(f"{desafiante}, digite a palavra-chave: ")
+    secreta = "*" * len(palavraChave)
+    dica1 = input(f"{desafiante}, digite a dica 1: ")
+    dica2 = input(f"{desafiante}, digite a dica 2: ")
+    dica3 = input(f"{desafiante}, digite a dica 3: ")
+
     contadorDicas = 0
-    totalErros = 0
+    erros = 0
     while True:
         os.system("cls")
+        print("Palavra Chave: ", secreta )
+        print("Total de Erros: " ,erros)
         print("(1) Jogar")
-        print("(2) Dica")
-        print(f"A palavra secreta é: {secreta}")
-        print(f"Total de Erros: {totalErros}")
-        if totalErros == 6:
-            print(f"O desafiante {desafiante} ganhou!")
-            print(f"O competidor {competidor} perdeu!")
-            time.sleep(2)
-            break
-        if "*" not in secreta:
-            print(f"O competidor {competidor} ganhou!")
-            print(f"O desafiante {desafiante} perdeu!")
-            time.sleep(2)
-            break
-
-        opcao = input()
-        
+        print("(2) Dicas")
+        opcao = input("Escolha uma opção: ")
         if opcao == "1":
-            tentativa = input("Informe a letra: ")
-            posicao = 0
+            print("Jogando...")
+            letra = input("Digite uma letra: ")
             acertou = False
             secreta = list(secreta)
-            for letra in palavra:
-                if letra == tentativa:
-                    secreta[posicao] = letra
+            posicao = 0
+            for letraPalavra in palavraChave:
+                if letra == letraPalavra:
                     acertou = True
-                posicao+=1
-                
-            secreta = ''.join(secreta)            
-            if acertou == False:
-                totalErros += 1
+                    secreta[posicao] = letra
+                    
+                posicao += 1    
+            secreta = "".join(secreta)
 
-        elif opcao == "2":
-            contadorDicas += 1
-            if contadorDicas == 1:
-                print(dica1)
-                time.sleep(2)
-            elif contadorDicas == 2:
-                print(dica2)
-                time.sleep(2)
-            elif contadorDicas == 3:
-                print(dica3)
-                time.sleep(2)
+            if acertou == True:
+                print("Você acertou a letra!")
+                if "*" not in secreta:
+                    print("Você ganhou!")
+                    break
             else:
-                print("Você não tem mais dicas!")
-                time.sleep(2)
-                
+                erros += 1
+                print("Você errou a letra!")    
+                if erros == 6:
+                    print("Você perdeu!")
+                    break
+        
+            # 5 - se não houver mais asteriscos, o jogador ganhou
+        
+            time.sleep(2)
+        elif opcao == "2":
+            print("Dicas:")
+            contadorDicas +=1
+            if contadorDicas == 1:
+                print(f"Dica 1: {dica1}")
+            elif contadorDicas == 2:
+                print(f"Dica 2: {dica2}")
+            elif contadorDicas == 3:
+                print(f"Dica 3: {dica3}")
+            else:
+                print("Você já usou todas as dicas.")
+            time.sleep(2)
+            
         else:
-            print("Opção Inválida!")
+            print("Opção inválida. Tente novamente.")
             time.sleep(2)
 
-    +--------+
-    O        |
-   /|\       |
-   / \       |
-             |
+    opcao = input("Deseja jogar novamente? (n-não e qualquer coisa para sim): ")
+    if opcao == "n":
+        print("Obrigado por jogar!")
+        break
+    
+
+

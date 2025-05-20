@@ -1,17 +1,18 @@
-import os
+
 import time
+from recursos.funcoes import limparTela
+from recursos.funcoes import aguardar
 
 
 
-
-os.system('cls')
+limparTela()
 nomeDesafiante = input('Nome do desafiante: ')
 nomeCompetidor = input('Nome do competidor: ')
-os.system('cls')
+limparTela()
 
 print('Iniciando o jogo...')
-time.sleep(2)
-os.system('cls')
+aguardar(2)
+limparTela()
 
 print('Desafiante, digite as seguintes informações:')
 palavraChave = input('Palavra chave: ').lower()  
@@ -21,8 +22,8 @@ dica3 = input('Dica 3: ')
 controleDicas = 0
 
 print("Carregando...")
-time.sleep(2)
-os.system('cls')
+aguardar(2)
+limparTela()
 
 palavraEscondida = ['_'] * len(palavraChave) 
 letras_usadas = []
@@ -30,7 +31,7 @@ letras_erradas = []
 controleLetrasErradas = 0
 
 while True:
-    os.system('cls')
+    limparTela()
     print("Palavra:", ' '.join(palavraEscondida))  
     print("Letras já usadas:", ', '.join(letras_usadas))
     print("(1) Jogar")
@@ -54,15 +55,15 @@ while True:
                 print("Errou!")
                 controleLetrasErradas += 1
                 if controleLetrasErradas == 6:
-                    os.system('cls')
+                    limparTela()
                     print("Você perdeu! A palavra era:", palavraChave)
                     break
         
-        time.sleep(2)
+        aguardar(2)
 
         
         if '_' not in palavraEscondida:
-            os.system('cls')
+            limparTela()
             print("Parabéns, você descobriu a palavra:", palavraChave)
             break
     
@@ -73,17 +74,17 @@ while True:
         if controleDicas == 1:
             print(f"Dica 1: {dica1}")
             
-            time.sleep(2)
+            aguardar(2)
         elif controleDicas == 2:
             print(f"Dica 2: {dica2}")
             
-            time.sleep(2)
+            aguardar(2)
         elif controleDicas == 3:
             print(f"Dica 3: {dica3}")
-            time.sleep(2)
+            aguardar(2)
             
         else:
             print("Você já usou todas as dicas!")
-            time.sleep(2)
+            aguardar(2)
         
         
