@@ -1,7 +1,7 @@
 import os
 import time
 
-# Entradas iniciais
+
 os.system('cls')
 nomeDesafiante = input('Nome do desafiante: ')
 nomeCompetidor = input('Nome do competidor: ')
@@ -12,7 +12,7 @@ time.sleep(2)
 os.system('cls')
 
 print('Desafiante, digite as seguintes informações:')
-palavraChave = input('Palavra chave: ').lower()  # força minúscula
+palavraChave = input('Palavra chave: ').lower()  
 dica1 = input('Dica 1: ')
 dica2 = input('Dica 2: ')
 dica3 = input('Dica 3: ')
@@ -22,13 +22,13 @@ print("Carregando...")
 time.sleep(2)
 os.system('cls')
 
-palavraEscondida = ['_'] * len(palavraChave)  # usamos lista aqui!
+palavraEscondida = ['_'] * len(palavraChave) 
 letras_usadas = []
 letras_erradas = []
 
 while True:
     os.system('cls')
-    print("Palavra:", ' '.join(palavraEscondida))  # junta com espaços
+    print("Palavra:", ' '.join(palavraEscondida))  
     print("Letras já usadas:", ', '.join(letras_usadas))
     print("(1) Jogar")
     print("(2) Solicitar Dica")
