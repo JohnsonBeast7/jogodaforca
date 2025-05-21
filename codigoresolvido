@@ -43,8 +43,32 @@ while True:
                     break
             else:
                 erros += 1
-                print("Você errou a letra!")    
-                if erros == 6:
+                print("Você errou a letra!")
+                if erros == 1:
+                    print('''
+                             +---------+
+                             |         |
+                             O         |
+                                       |
+                                       |
+                                       | ''')
+                if erros == 2:
+                    print('''
+                             +---------+
+                             |         |
+                             O         |
+                             |         |
+                                       |
+                                       | ''')
+                 if erros == 3:
+                    print('''
+                             +---------+
+                             |         |
+                             O         |
+                            /|         |
+                                       |
+                                       | ''')                       
+                if erros == 6: 
                     print("Você perdeu!")
                     break
         
